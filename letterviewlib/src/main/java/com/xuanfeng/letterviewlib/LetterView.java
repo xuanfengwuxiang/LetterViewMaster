@@ -94,7 +94,7 @@ public class LetterView extends View {
                 mPaint.setColor(mCommonColor);
             }
             float baseLine = mLetterHeight / 2.0f + (mPaint.descent() - mPaint.ascent()) / 2 - mPaint.descent();
-            canvas.drawText(mList.get(i), (getWidth() - mPaint.measureText(mList.get(i))) / 2, i * mLetterHeight + baseLine, mPaint);
+            canvas.drawText(mList.get(i), (getWidth() - mPaint.measureText(mList.get(i))) / 2, getPaddingTop() + baseLine + i * mLetterHeight, mPaint);
         }
     }
 

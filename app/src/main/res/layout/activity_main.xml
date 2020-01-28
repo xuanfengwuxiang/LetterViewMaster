@@ -9,10 +9,12 @@
     tools:context=".MainActivity">
 
     <com.xuanfeng.letterviewlib.LetterView
+        android:paddingTop="20dp"
         android:id="@+id/letterView"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         app:letter_height="15dp"
-        app:letter_size="12sp" />
+        app:letter_size="12sp"
+        android:paddingBottom="20dp"/>
 
 </LinearLayout>
