@@ -88,11 +88,8 @@ public class LetterView extends View {
         super.onDraw(canvas);
 
         for (int i = 0; i < mList.size(); i++) {
-            if (i == mSelectedPosition) {
-                mPaint.setColor(mSelectedColor);
-            } else {
-                mPaint.setColor(mCommonColor);
-            }
+
+            mPaint.setColor(i == mSelectedPosition ? mSelectedColor : mCommonColor);
             float baseLine = mLetterHeight / 2.0f + (mPaint.descent() - mPaint.ascent()) / 2 - mPaint.descent();
             canvas.drawText(mList.get(i), (getWidth() - mPaint.measureText(mList.get(i))) / 2, getPaddingTop() + baseLine + i * mLetterHeight, mPaint);
         }
