@@ -74,7 +74,7 @@ public class LetterView extends View {
         //处理高
         if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY) {
             height = MeasureSpec.getSize(heightMeasureSpec);
-            mLetterHeight = height * 1.0f / mList.size();//总高度固定的话，每个字母高度自适应
+            mLetterHeight = (height - getPaddingTop() - getPaddingBottom()) * 1.0f / mList.size();//总高度固定的话，每个字母高度自适应
         } else {
             height = (int) (getPaddingTop() + getPaddingBottom() + mLetterHeight * mList.size());
         }
@@ -97,8 +97,8 @@ public class LetterView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float y = event.getY();
-        int touchPos = (int) (y / mLetterHeight);
+
+        int touchPos = (int) ((event.getY() - getPaddingTop()) / mLetterHeight);
         if (touchPos < 0 || touchPos > mList.size() - 1) {//滑动超出范围
             return true;
         }

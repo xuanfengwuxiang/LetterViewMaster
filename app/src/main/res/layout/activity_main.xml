@@ -11,12 +11,12 @@
     <com.xuanfeng.letterviewlib.LetterView
         android:id="@+id/letterView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:paddingLeft="50dp"
-        android:paddingTop="20dp"
+        android:paddingTop="70dp"
         android:paddingRight="10dp"
         android:paddingBottom="20dp"
-        app:letter_height="15dp"
+        app:letter_height="20dp"
         app:letter_size="12sp" />
 
 </LinearLayout>
