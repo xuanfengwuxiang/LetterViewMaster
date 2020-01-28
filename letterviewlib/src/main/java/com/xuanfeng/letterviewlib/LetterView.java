@@ -68,7 +68,7 @@ public class LetterView extends View {
         if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
             width = MeasureSpec.getSize(widthMeasureSpec);
         } else {
-            width = (int) mPaint.measureText("W");
+            width = (int) (getPaddingLeft() + getPaddingRight() + getMaxWidth());
         }
 
         //处理高
@@ -132,5 +132,19 @@ public class LetterView extends View {
 
     public void setData(List<String> list) {
         mList = list;
+    }
+
+    //从所有字符串中，找出最大的宽度
+    private float getMaxWidth() {
+        float result = 0;
+        if (mList != null && !mList.isEmpty()) {
+            for (String ss : mList) {
+                float temp = mPaint.measureText(ss);
+                if (temp > result) {
+                    result = temp;
+                }
+            }
+        }
+        return result;
     }
 }
