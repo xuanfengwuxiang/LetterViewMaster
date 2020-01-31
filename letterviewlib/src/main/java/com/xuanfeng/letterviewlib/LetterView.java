@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +16,9 @@ import androidx.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 字母检索导航
+ */
 public class LetterView extends View {
 
     private static final String[] DEFAULT_LETTERS = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
@@ -129,6 +133,20 @@ public class LetterView extends View {
 
     public void setData(List<String> list) {
         mList = list;
+    }
+
+    //根据外面的列表更新字母导航
+    public void updateLetterView(String content) {
+        if (TextUtils.isEmpty(content) || mList == null || mList.isEmpty()) {
+            return;
+        }
+
+        for (int i = 0; i < mList.size(); i++) {
+            if (TextUtils.equals(mList.get(i), content)) {
+                mSelectedPosition = i;
+                invalidate();
+            }
+        }
     }
 
     //从所有字符串中，找出最大的宽度
