@@ -133,6 +133,8 @@ public class LetterView extends View {
 
     public void setData(List<String> list) {
         mList = list;
+        requestLayout();
+        invalidate();
     }
 
     //根据外面的列表更新字母导航
